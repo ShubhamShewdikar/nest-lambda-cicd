@@ -1,0 +1,21 @@
+service:
+ name: nest-lambda-cicd
+
+plugins:
+ - serverless-plugin-optimize
+ - serverless-offline
+
+provider:
+ name: aws
+ runtime: nodejs12.x
+
+functions:
+ main:
+   handler: src/handler.handler
+   events:
+     - http:
+         method: get
+         path: /hello
+     - http:
+         method: get
+         path: /welcome
